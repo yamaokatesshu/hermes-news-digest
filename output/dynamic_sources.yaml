@@ -1,1 +1,33 @@
-sources: []
+sources:
+- name: TechCrunch
+  url: https://techcrunch.com
+- name: The Verge
+  url: https://www.theverge.com
+- name: Wired
+  url: https://www.wired.com
+- name: CNET
+  url: https://www.cnet.com
+- name: ZDNet
+  url: https://www.zdnet.com
+- name: Lifehacker
+  url: https://lifehacker.com
+- name: PCMag
+  url: https://www.pcmag.com
+- name: MakeUseOf
+  url: https://www.makeuseof.com
+- name: Zapier Blog
+  url: https://zapier.com/blog/
+- name: Towards Data Science (on Medium)
+  url: https://towardsdatascience.com/
+- name: Google AI Blog
+  url: https://ai.googleblog.com/
+- name: Microsoft AI Blog
+  url: https://blogs.microsoft.com/ai/
+- name: MIT Technology Review
+  url: https://www.technologyreview.com
+- name: Jasper Blog
+  url: https://www.jasper.ai/blog
+- name: Grammarly Blog
+  url: https://www.grammarly.com/blog/
+- name: Notion Blog
+  url: https://www.notion.so/blog

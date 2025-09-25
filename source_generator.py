@@ -19,7 +19,7 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 DYNAMIC_SOURCES_PATH = OUTPUT_DIR / "dynamic_sources.yaml"
 
 # Gemini API settings
-API_KEY = ""  # Handled by the execution environment
+API_KEY = "AIzaSyAv2C19Qlm77uPx7ulm2HeRoHDlT0zjsoo"  # Handled by the execution environment
 # --- FIX: Corrected the typo in the Gemini API URL ---
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key={API_KEY}"
 
