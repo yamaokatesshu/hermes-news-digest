@@ -1,13 +1,205 @@
-2025-09-23 18:27:58,476 - INFO - --- 🛡️  Hermes: Starting Article Discovery ---
-2025-09-23 18:27:58,477 - INFO - Loaded 0 previously processed URLs from log.
-2025-09-23 18:27:58,477 - INFO - Time Window: Fetching articles newer than 2025-09-21 01:27:58 UTC
-2025-09-23 18:27:58,522 - WARNING - Source 'Reuters Technology' is not a valid RSS feed or is empty. Will attempt to crawl as HTML.
-2025-09-23 18:27:58,523 - INFO -   -> Crawling 'Reuters Technology' as an HTML page...
-2025-09-23 18:27:58,568 - ERROR - Could not fetch HTML for 'Reuters Technology': HTTPConnectionPool(host='feeds.reuters.com', port=80): Max retries exceeded with url: /reuters/technologyNews (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7b6b3d27e550>: Failed to resolve 'feeds.reuters.com' ([Errno -2] Name or service not known)"))
-2025-09-23 18:27:59,166 - WARNING - Source 'Hacker News' is not a valid RSS feed or is empty. Will attempt to crawl as HTML.
-2025-09-23 18:27:59,166 - INFO -   -> Crawling 'Hacker News' as an HTML page...
-2025-09-23 18:31:08,846 - INFO - 
+--- Hermes: Starting Article Discovery ---
+Loaded 5 static sources from config_hermes.yaml.
+Loaded 0 previously processed URLs from log.
+Time Window: Fetching articles newer than 2025-09-22 05:39:13 UTC
+Scanning a total of 5 sources...
+-> Processing RSS feed: Reuters Technology
+  - Source 'Reuters Technology' is not a valid RSS or is empty. Trying as HTML.
+-> Crawling HTML page: 'Reuters Technology'
+Could not fetch HTML for 'Reuters Technology': HTTPConnectionPool(host='feeds.reuters.com', port=80): Max retries exceeded with url: /reuters/technologyNews (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7081a9b56cd0>: Failed to resolve 'feeds.reuters.com' ([Errno -2] Name or service not known)"))
+-> Processing RSS feed: Wired
+  - Found 50 new articles from RSS.
+-> Processing RSS feed: MIT Technology Review
+  - Found 10 new articles from RSS.
+-> Processing RSS feed: Ars Technica
+  - Found 20 new articles from RSS.
+-> Processing RSS feed: Hacker News
+  - Source 'Hacker News' is not a valid RSS or is empty. Trying as HTML.
+-> Crawling HTML page: 'Hacker News'
+  - Found 164 potential links. Checking each for recency...
+    - Checking: https://news.ycombinator.com/news
+    - Checking: https://news.ycombinator.com/vote?id=45367086&how=up&goto=news
+    - Checking: https://news.ycombinator.com/item?id=45361268
+    - Checking: https://news.ycombinator.com/vote?id=45362914&how=up&goto=news
+    - Checking: https://news.ycombinator.com/hide?id=45366867&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45368058&how=up&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45365878&how=up&goto=news
+    - Checking: https://news.ycombinator.com/hide?id=45361268&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45359074&how=up&goto=news
+    - Checking: https://news.ycombinator.com/user?id=mooreds
+    (10/164) links checked...
+    - Checking: https://news.ycombinator.com/vote?id=45362254&how=up&goto=news
+    - Checking: https://news.ycombinator.com/submit
+    - Checking: https://news.ycombinator.com/from?site=github.com%2Fgoudvuur
+    - Checking: https://news.ycombinator.com/hide?id=45362023&goto=news
+    - Checking: https://news.ycombinator.com/hide?id=45367085&goto=news
+    - Checking: https://news.ycombinator.com/item?id=45359604
+    - Checking: https://news.ycombinator.com/vote?id=45362023&how=up&goto=news
+    - Checking: https://news.ycombinator.com/newest
+    - Checking: https://news.ycombinator.com/vote?id=45361268&how=up&goto=news
+    - Checking: https://news.ycombinator.com/user?id=todsacerdoti
+    (20/164) links checked...
+    - Checking: https://news.ycombinator.com/hide?id=45362697&goto=news
+    - Checking: https://news.ycombinator.com/from?site=wasmer.io
+    - Checking: https://news.ycombinator.com/vote?id=45364450&how=up&goto=news
+    - Checking: https://news.ycombinator.com/from?site=ieee.org
+    - Checking: https://news.ycombinator.com/item?id=45362697
+    - Checking: https://news.ycombinator.com/vote?id=45361578&how=up&goto=news
+    - Checking: https://news.ycombinator.com/show
+    - Checking: https://news.ycombinator.com/user?id=snowmaker
+    - Checking: https://news.ycombinator.com/user?id=_1729
+    - Checking: https://news.ycombinator.com/login?goto=news
+    (30/164) links checked...
+    - Checking: https://news.ycombinator.com/item?id=45361394
+    - Checking: https://news.ycombinator.com/hide?id=45367086&goto=news
+    - Checking: https://news.ycombinator.com/hide?id=45367046&goto=news
+    - Checking: https://news.ycombinator.com/from?site=dgerrells.com
+    - Checking: https://news.ycombinator.com/vote?id=45359604&how=up&goto=news
+    - Checking: https://news.ycombinator.com?p=2
+    - Checking: https://news.ycombinator.com/item?id=45364450
+    - Checking: https://news.ycombinator.com/item?id=45321849
+    - Checking: https://news.ycombinator.com/from?site=helium.computer
+    - Checking: https://news.ycombinator.com/from?site=cjauvin.github.io
+    (40/164) links checked...
+    - Checking: https://news.ycombinator.com/hide?id=45337302&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45360824&how=up&goto=news
+    - Checking: https://news.ycombinator.com/user?id=jerryliu12
+    - Checking: https://news.ycombinator.com/user?id=cipherself
+    - Checking: https://news.ycombinator.com/user?id=spacebuffer
+    - Checking: https://news.ycombinator.com/from?site=leolabs.space
+    - Checking: https://news.ycombinator.com/user?id=dogano
+    - Checking: https://news.ycombinator.com/user?id=handfuloflight
+    - Checking: https://news.ycombinator.com/item?id=45358280
+    - Checking: https://news.ycombinator.com/hide?id=45361394&goto=news
+    (50/164) links checked...
+    - Checking: https://news.ycombinator.com/hide?id=45359524&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45367046&how=up&goto=news
+    - Checking: https://news.ycombinator.com/item?id=45319966
+    - Checking: https://news.ycombinator.com/from?site=computer.rip
+    - Checking: https://news.ycombinator.com/from?site=idea-instructions.com
+    - Checking: https://news.ycombinator.com/item?id=45337302
+    - Checking: https://news.ycombinator.com/item?id=45360824
+    - Checking: https://news.ycombinator.com/vote?id=45358980&how=up&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45366867&how=up&goto=news
+    - Checking: https://news.ycombinator.com/item?id=45359524
+    (60/164) links checked...
+    - Checking: https://news.ycombinator.com/lists
+    - Checking: https://news.ycombinator.com/item?id=45368210
+    - Checking: https://news.ycombinator.com/vote?id=45320801&how=up&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45358280&how=up&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45358940&how=up&goto=news
+    - Checking: https://news.ycombinator.com/item?id=45362206
+    - Checking: https://news.ycombinator.com/item?id=45362254
+    - Checking: https://news.ycombinator.com/item?id=45359074
+    - Checking: https://news.ycombinator.com/from?site=chaoticgood.management
+    - Checking: https://news.ycombinator.com/newsguidelines.html
+    (70/164) links checked...
+    - Checking: https://news.ycombinator.com/user?id=MrPowers
+    - Checking: https://news.ycombinator.com/vote?id=45366566&how=up&goto=news
+    - Checking: https://news.ycombinator.com/from?site=lukefleed.xyz
+    - Checking: https://news.ycombinator.com/vote?id=45366474&how=up&goto=news
+    - Checking: https://news.ycombinator.com/hide?id=45358940&goto=news
+    - Checking: https://news.ycombinator.com/newsfaq.html
+    - Checking: https://news.ycombinator.com/user?id=jashmota
+    - Checking: https://news.ycombinator.com/from?site=dockerstatus.com
+    - Checking: https://news.ycombinator.com/hide?id=45361578&goto=news
+    - Checking: https://news.ycombinator.com/hide?id=45365878&goto=news
+    (80/164) links checked...
+    - Checking: https://news.ycombinator.com/hide?id=45362254&goto=news
+    - Checking: https://news.ycombinator.com/user?id=phewlink
+    - Checking: https://news.ycombinator.com/item?id=45320801
+    - Checking: https://news.ycombinator.com/from?site=github.com%2Fjerryzliu
+    - Checking: https://news.ycombinator.com/hide?id=45343282&goto=news
+    - Checking: https://news.ycombinator.com/item?id=45366867
+    - Checking: https://news.ycombinator.com/item?id=45367086
+    - Checking: https://news.ycombinator.com/hide?id=45362206&goto=news
+    - Checking: https://news.ycombinator.com/hide?id=45320801&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45359524&how=up&goto=news
+    (90/164) links checked...
+    - Checking: https://news.ycombinator.com/from?site=bitbytebit.substack.com
+    - Checking: https://news.ycombinator.com/security.html
+    - Checking: https://news.ycombinator.com/hide?id=45358980&goto=news
+    - Checking: https://news.ycombinator.com/hide?id=45360824&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45362206&how=up&goto=news
+    - Checking: https://news.ycombinator.com/from?site=mathstodon.xyz
+    - Checking: https://news.ycombinator.com/user?id=recroad
+    - Checking: https://news.ycombinator.com/hide?id=45359604&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45343282&how=up&goto=news
+    - Checking: https://news.ycombinator.com/user?id=lando2319
+    (100/164) links checked...
+    - Checking: https://news.ycombinator.com/from?site=bbc.com
+    - Checking: https://news.ycombinator.com/hide?id=45368058&goto=news
+    - Checking: https://news.ycombinator.com/from?site=kiddle.co
+    - Checking: https://news.ycombinator.com/vote?id=45368210&how=up&goto=news
+    - Checking: https://news.ycombinator.com/user?id=foehrenwald
+    - Checking: https://news.ycombinator.com/from?site=rockefeller.edu
+    - Checking: https://news.ycombinator.com/user?id=beligum
+    - Checking: https://news.ycombinator.com/item?id=45367085
+    - Checking: https://news.ycombinator.com/item?id=45361578
+    - Checking: https://news.ycombinator.com/user?id=sschueller
+    (110/164) links checked...
+    - Checking: https://news.ycombinator.com/from?site=apache.org
+    - Checking: https://news.ycombinator.com/item?id=45366474
+    - Checking: https://news.ycombinator.com/hide?id=45319966&goto=news
+    - Checking: https://news.ycombinator.com/user?id=kamaraju
+    - Checking: https://news.ycombinator.com/user?id=bertman
+    - Checking: https://news.ycombinator.com/user?id=jnord
+    - Checking: https://news.ycombinator.com/from?site=ifp.org
+    - Checking: https://news.ycombinator.com/ask
+    - Checking: https://news.ycombinator.com/hide?id=45366474&goto=news
+    - Checking: https://news.ycombinator.com/front
+    (120/164) links checked...
+    - Checking: https://news.ycombinator.com/hide?id=45368210&goto=news
+    - Checking: https://news.ycombinator.com/user?id=aberoham
+    - Checking: https://news.ycombinator.com/from?site=shreyashariharan.substack.com
+    - Checking: https://news.ycombinator.com
+    - Checking: https://news.ycombinator.com/hide?id=45358280&goto=news
+    - Checking: https://news.ycombinator.com/from?site=github.com%2Feu-digital-identity-wallet
+    - Checking: https://news.ycombinator.com/item?id=45367046
+    - Checking: https://news.ycombinator.com/hide?id=45321849&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45362697&how=up&goto=news
+    - Checking: https://news.ycombinator.com/user?id=voxadam
+    (130/164) links checked...
+    - Checking: https://news.ycombinator.com/item?id=45362914
+    - Checking: https://news.ycombinator.com/user?id=lossolo
+    - Checking: https://news.ycombinator.com/hide?id=45364450&goto=news
+    - Checking: https://news.ycombinator.com/user?id=_zie
+    - Checking: https://news.ycombinator.com/item?id=45362023
+    - Checking: https://news.ycombinator.com/from?site=2minutestreaming.com
+    - Checking: https://news.ycombinator.com/user?id=johntfella
+    - Checking: https://news.ycombinator.com/newcomments
+    - Checking: https://news.ycombinator.com/hide?id=45366566&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45367085&how=up&goto=news
+    (140/164) links checked...
+    - Checking: https://news.ycombinator.com/from?site=qualcomm.com
+    - Checking: https://news.ycombinator.com/item?id=45365878
+    - Checking: https://news.ycombinator.com/user?id=baalimago
+    - Checking: https://news.ycombinator.com/from?site=doganoo.medium.com
+    - Checking: https://news.ycombinator.com/from?site=idiallo.com
+    - Checking: https://news.ycombinator.com/item?id=45366566
+    - Checking: https://news.ycombinator.com/item?id=45343282
+    - Checking: https://news.ycombinator.com/item?id=45358940
+    - Checking: https://news.ycombinator.com/jobs
+    - Checking: https://news.ycombinator.com/item?id=45358980
+    (150/164) links checked...
+    - Checking: https://news.ycombinator.com/hide?id=45362914&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45361394&how=up&goto=news
+    - Checking: https://news.ycombinator.com/vote?id=45319966&how=up&goto=news
+    - Checking: https://news.ycombinator.com/user?id=wmf
+    - Checking: https://news.ycombinator.com/hide?id=45359074&goto=news
+    - Checking: https://news.ycombinator.com/user?id=PaulHoule
+    - Checking: https://news.ycombinator.com/vote?id=45337302&how=up&goto=news
+    - Checking: https://news.ycombinator.com/from?site=newsweek.com
+    - Checking: https://news.ycombinator.com/user?id=cjauvin
+    - Checking: https://news.ycombinator.com/item?id=45368058
+    (160/164) links checked...
+    - Checking: https://news.ycombinator.com/from?site=github.com%2Fyt-dlp
+    - Checking: https://news.ycombinator.com/vote?id=45321849&how=up&goto=news
+    - Checking: https://news.ycombinator.com/from?site=ycombinator.com
+    - Checking: https://news.ycombinator.com/user?id=lukefleed
+  - Found 0 new articles from crawling.
+
 --- Discovery Phase Complete ---
-2025-09-23 18:31:08,848 - INFO - Found 64 new, unique article URLs to be processed.
-2025-09-23 18:31:08,848 - INFO - Saved candidate list to: /home/benjamincros76/PycharmProjects/Hermes/output/candidate_urls.txt
-2025-09-23 18:31:08,848 - INFO - --- End of Discovery ---
+Found 80 new, unique article URLs to be processed.
+Saved candidate list to: /home/benjamincros76/PycharmProjects/Hermes/output/candidate_urls.txt
+--- End of Discovery ---

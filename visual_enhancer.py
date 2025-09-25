@@ -16,7 +16,7 @@ except ImportError as e:
     sys.exit(f"❌ Error: Missing a required library ({e.name}). Please run: pip install Pillow requests")
 
 try:
-    from llama_cpp import Llama, LlamaGrammar
+    from llama_cpp import Llama
     from llama_cpp.llama_chat_format import Llava15ChatHandler
 except ImportError:
     sys.exit("❌ Error: 'llama-cpp-python' library not found. Please run: pip install llama-cpp-python")
@@ -155,12 +155,16 @@ def get_image_analysis(llm, image_path: Path, summary: str) -> (str, str):
 
         data_uri = "data:image/jpeg;base64," + base64.b64encode(image_bytes).decode("utf-8")
 
+        # --- FIX: Truncate the summary to prevent context overflow ---
+        # Keep the summary reasonably short to leave room for the image and prompt.
+        truncated_summary = summary[:1000]
+
         prompt = (
             "Analyze this image in the context of the provided news summary. "
             "Respond in a JSON format with two keys: "
             "1) 'alt_text': A concise, SEO-friendly description of the image's contents. "
             "2) 'caption': A compelling one-sentence caption that links the image to the news story.\n"
-            f"NEWS SUMMARY: {summary}"
+            f"NEWS SUMMARY: {truncated_summary}" # Use the truncated summary
         )
 
         response = llm.create_chat_completion(
@@ -170,7 +174,6 @@ def get_image_analysis(llm, image_path: Path, summary: str) -> (str, str):
                     {"type": "text", "text": prompt}
                 ]}
             ],
-            # Use grammar to force a JSON response
             response_format={"type": "json_object"},
             temperature=0.4
         )
@@ -245,3 +248,4 @@ if __name__ == "__main__":
     update_database(all_articles)
 
     logging.info("--- Visual Enhancement Complete ---")
+
