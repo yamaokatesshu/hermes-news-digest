@@ -1,0 +1,13 @@
+2025-09-23 18:27:58,476 - INFO - --- 🛡️  Hermes: Starting Article Discovery ---
+2025-09-23 18:27:58,477 - INFO - Loaded 0 previously processed URLs from log.
+2025-09-23 18:27:58,477 - INFO - Time Window: Fetching articles newer than 2025-09-21 01:27:58 UTC
+2025-09-23 18:27:58,522 - WARNING - Source 'Reuters Technology' is not a valid RSS feed or is empty. Will attempt to crawl as HTML.
+2025-09-23 18:27:58,523 - INFO -   -> Crawling 'Reuters Technology' as an HTML page...
+2025-09-23 18:27:58,568 - ERROR - Could not fetch HTML for 'Reuters Technology': HTTPConnectionPool(host='feeds.reuters.com', port=80): Max retries exceeded with url: /reuters/technologyNews (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7b6b3d27e550>: Failed to resolve 'feeds.reuters.com' ([Errno -2] Name or service not known)"))
+2025-09-23 18:27:59,166 - WARNING - Source 'Hacker News' is not a valid RSS feed or is empty. Will attempt to crawl as HTML.
+2025-09-23 18:27:59,166 - INFO -   -> Crawling 'Hacker News' as an HTML page...
+2025-09-23 18:31:08,846 - INFO - 
+--- Discovery Phase Complete ---
+2025-09-23 18:31:08,848 - INFO - Found 64 new, unique article URLs to be processed.
+2025-09-23 18:31:08,848 - INFO - Saved candidate list to: /home/benjamincros76/PycharmProjects/Hermes/output/candidate_urls.txt
+2025-09-23 18:31:08,848 - INFO - --- End of Discovery ---
