@@ -1,33 +1,21 @@
 sources:
-- name: TechCrunch
-  url: https://techcrunch.com
-- name: The Verge
-  url: https://www.theverge.com
-- name: Wired
-  url: https://www.wired.com
-- name: CNET
-  url: https://www.cnet.com
-- name: ZDNet
-  url: https://www.zdnet.com
-- name: Lifehacker
-  url: https://lifehacker.com
-- name: PCMag
-  url: https://www.pcmag.com
-- name: MakeUseOf
-  url: https://www.makeuseof.com
+- name: The New York Times - Technology
+  url: https://www.nytimes.com/section/technology
+- name: Forbes - AI
+  url: https://www.forbes.com/ai/
+- name: Wired - AI
+  url: https://www.wired.com/tag/ai/
+- name: MIT Technology Review - Artificial Intelligence
+  url: https://www.technologyreview.com/topic/artificial-intelligence/
 - name: Zapier Blog
   url: https://zapier.com/blog/
-- name: Towards Data Science (on Medium)
-  url: https://towardsdatascience.com/
+- name: Notion Blog - AI
+  url: https://www.notion.so/blog/topic/ai
+- name: The Verge - AI
+  url: https://www.theverge.com/ai
+- name: FutureTools.io
+  url: https://www.futuretools.io/
 - name: Google AI Blog
   url: https://ai.googleblog.com/
 - name: Microsoft AI Blog
   url: https://blogs.microsoft.com/ai/
-- name: MIT Technology Review
-  url: https://www.technologyreview.com
-- name: Jasper Blog
-  url: https://www.jasper.ai/blog
-- name: Grammarly Blog
-  url: https://www.grammarly.com/blog/
-- name: Notion Blog
-  url: https://www.notion.so/blog

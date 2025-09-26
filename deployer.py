@@ -1,5 +1,4 @@
 # deployer.py
-# Note GitHub key = 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
 
 import sys
 import logging
@@ -57,8 +56,8 @@ if __name__ == "__main__":
 
     # --- Step 3: Commit the changes ---
     commit_message = f"Automated content update: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-    if not run_command(["git", "commit", "-m", commit_message]):
-        # This might fail if there's nothing new to commit, which is not a critical error.
+    # Use --allow-empty in case only the log file changed, which might be ignored.
+    if not run_command(["git", "commit", "--allow-empty", "-m", commit_message]):
         logging.warning("Commit failed. This may be because there were no new changes to the website.")
 
     # --- Step 4: Push to the remote repository ---

@@ -64,8 +64,6 @@ def parse_database():
         if summary_match:
             article_data['Summary'] = summary_match.group(1).strip()
 
-        # Store original text to reconstruct the file
-        article_data['original_text'] = article_text
         yield article_data
 
 
@@ -73,9 +71,7 @@ def update_database(all_articles):
     """Rewrites the database file with updated article information."""
     output_content = []
     for article in all_articles:
-        # Reconstruct the entry from the dictionary
         entry = "--- ARTICLE START ---\n"
-        # Define a consistent order for keys
         key_order = ["Title", "URL", "Date_Processed", "Image_Path", "Image_Alt_Text", "Image_Caption", "Reason"]
         for key in key_order:
             if key in article and article[key]:
@@ -96,19 +92,16 @@ def download_hero_image(article_url: str, title: str) -> Path | None:
         response.raise_for_status()
         soup = BeautifulSoup(response.text, 'html.parser')
 
-        # Strategy 1: Look for the OpenGraph image meta tag (most reliable)
         og_image = soup.find('meta', property='og:image')
         if og_image and og_image.get('content'):
             image_url = og_image['content']
         else:
-            # Strategy 2: Find the largest image on the page (heuristic)
             images = soup.find_all('img')
             largest_image_url = None
             max_area = 0
             for img in images:
                 src = img.get('src')
-                if not src or src.startswith('data:'):
-                    continue
+                if not src or src.startswith('data:'): continue
                 try:
                     width = int(img.get('width', 0))
                     height = int(img.get('height', 0))
@@ -123,19 +116,15 @@ def download_hero_image(article_url: str, title: str) -> Path | None:
                 return None
             image_url = largest_image_url
 
-        # Make relative URLs absolute
         image_url = urljoin(article_url, image_url)
 
-        # Download the image
         img_response = requests.get(image_url, timeout=15)
         img_response.raise_for_status()
         image = Image.open(BytesIO(img_response.content))
 
-        # Sanitize title for filename
         safe_filename = re.sub(r'[\\/*?:"<>|]', "", title)[:50] + ".jpg"
         save_path = IMAGES_DIR / safe_filename
 
-        # Convert to RGB if it's not, to ensure it saves as JPG
         if image.mode in ("RGBA", "P"):
             image = image.convert("RGB")
 
@@ -156,7 +145,6 @@ def get_image_analysis(llm, image_path: Path, summary: str) -> (str, str):
         data_uri = "data:image/jpeg;base64," + base64.b64encode(image_bytes).decode("utf-8")
 
         # --- FIX: Truncate the summary to prevent context overflow ---
-        # Keep the summary reasonably short to leave room for the image and prompt.
         truncated_summary = summary[:1000]
 
         prompt = (
@@ -164,7 +152,7 @@ def get_image_analysis(llm, image_path: Path, summary: str) -> (str, str):
             "Respond in a JSON format with two keys: "
             "1) 'alt_text': A concise, SEO-friendly description of the image's contents. "
             "2) 'caption': A compelling one-sentence caption that links the image to the news story.\n"
-            f"NEWS SUMMARY: {truncated_summary}" # Use the truncated summary
+            f"NEWS SUMMARY: {truncated_summary}"
         )
 
         response = llm.create_chat_completion(
@@ -208,7 +196,6 @@ if __name__ == "__main__":
 
     logging.info(f"Found {len(articles_to_process)} new articles to enhance with visuals.")
 
-    # --- Load Pixtral Model ---
     try:
         chat_handler = Llava15ChatHandler(clip_model_path=str(PIXTRAL_MMPROJ_PATH), verbose=False)
         llm = Llama(
@@ -223,29 +210,24 @@ if __name__ == "__main__":
         logging.error(f"❌ Failed to load Pixtral model. Halting. Error: {e}")
         sys.exit(1)
 
-    # --- Main Processing Loop ---
     for article in all_articles:
-        if "Image_Path" not in article:
+        if "Image_Path" not in article or not article.get("Image_Path") or article.get(
+                "Image_Path") == "download_failed":
             logging.info(f"\n-> Processing article: {article['Title']}")
 
-            # 1. Download image
             image_path = download_hero_image(article['URL'], article['Title'])
             if image_path:
                 article['Image_Path'] = str(image_path.relative_to(PROJECT_ROOT))
 
-                # 2. Analyze with Pixtral
-                alt, caption = get_image_analysis(llm, image_path, article['Summary'])
+                alt, caption = get_image_analysis(llm, image_path, article.get('Summary', ''))
                 article['Image_Alt_Text'] = alt
                 article['Image_Caption'] = caption
             else:
-                # Mark as processed even if image fails so we don't retry every time
                 article['Image_Path'] = "download_failed"
                 article['Image_Alt_Text'] = ""
                 article['Image_Caption'] = ""
 
-    # --- 3. Update the database file with all changes ---
     logging.info("\nUpdating database.md with new visual metadata...")
     update_database(all_articles)
 
     logging.info("--- Visual Enhancement Complete ---")
-
